@@ -1,0 +1,37 @@
+{
+  "name": "lesson_52",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "stop": "docker compose down",
+    "stop:force": "docker compose down -v",
+    "docker:up": "docker compose up -d",
+    "docker:rs": "docker compose down && docker compose up -d --build && docker attach tms_worker_server_1",
+    "docker:attach:1": "docker attach tms_worker_server_1",
+    "docker:attach:2": "docker attach tms_worker_server_2",
+    "docker:attach:3": "docker attach tms_worker_server_3",
+    "docker:down": "docker compose down",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:undo:one": "npx sequelize-cli db:migrate:undo",
+    "db:seed:up": "npx sequelize-cli db:seed:all",
+    "db:seed:down": "npx sequelize-cli db:seed:undo"
+  },
+  "author": "TMS",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "lodash": "^4.17.21",
+    "pg": "^8.7.3",
+    "redis": "^4.2.0",
+    "sequelize": "^6.21.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
+    "@types/node": "^18.0.3",
+    "nodemon": "^2.0.19",
+    "sequelize-cli": "^6.4.1"
+  }
+}
